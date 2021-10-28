@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Ticket Cafe </title>
+    {% load static %}
+    <link href="{% static 'ticket/css/style.css'%}" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+    <header>
+           
+        <div class="row">
+            <div class="logo">
+            <img src="{% static 'ticket/img/logo.png' %}">
+        </div>
+
+        <ul class="main-nav">
+               
+                <li class="active"><a href="">HOME</a></li>
+                <li><a href="{% url 'index' %}">SERVICES</a></li>
+                <li><a href="{% url 'analysis' %}">ANALYSIS</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT US</a></li>                
+                <!--<li><a href="{% url 'search' %}">SIGNUP</a></li>-->
+                <li><a href="{% url 'user-add' %}">LOGIN</a></li>         
+                
+        </div>
+
+        <div class = "hero">
+        <h1>Ticket Cafe</h1> 
+         
+        <div class="button">
+            <a id="Watch_T" href="watch.html" class="btn btn-one">Watch Trailers</a>
+            <a id="SportsB" href="{% url 'sports' %}" class="btn btn-two">Sports</a>
+            <a id="MoviesB" href="{% url 'movies' %}" class="btn btn-three">Movies</a>
+            <a id="ExploreB" href="{% url 'concert' %}" class="btn btn-four">Explore</a>
+         </div>
+
+         <div class='container-fluid'>
+                <br><br>
+        </div>
+        {% block content %}
+        {% endblock %}
+        
+    </header>
+
+</body>
+
+    
+</html>

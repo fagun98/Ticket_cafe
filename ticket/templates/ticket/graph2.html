@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ticket Cafe : Analysis</title>
+    {% load staticfiles%}
+    <link href="{% static 'ticket/css/graphst.css'%}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+        <div class="row">
+                <ul class="main-nav">
+                
+                <h4><a href="{% url 'analysis5'%}">Trending CONCERTS ANALYSIS</a></h4>
+                <h4><a href="{% url 'analysis4'%}">Trending SPORTS ANALYSIS</a></h4>
+                <h4><a href="{% url 'analysis3'%}">Trending MOVIE ANALYSIS</a></h4>
+                <h4><a href="{% url 'analysis2'%}">Trending Theatre ANALYSIS</a></h4>
+                <h4><a href="{% url 'index'%}">HOME</a></h4>
+            
+                </ul>
+         </div>   
+        <p>
+            {{line|safe}}
+        </p>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sell Movie Tickets</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+  <link href="{% static 'ticket/css/bootstrap-4.0.0.css'%}" rel="stylesheet">
+  </head>
+<body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'ticket/js/jquery-3.2.1.min.js'%}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'ticket/js/popper.min.js'%}"></script>
+<script src="{% static 'ticket/js/bootstrap-4.0.0.js'%}"></script>
+<div class="container mt-2">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron">
+            <h1 class="text-center">SELL YOUR TICKETS</h1>
+           
+            
+            <div> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+              <label for="date2">Date:</label>
+              <input type="date" name="date" id="date2">
+              <label for="select"> &nbsp; &nbsp; &nbsp; &nbsp; Theatre:</label>
+              <select name="select" id="select">
+                <option value="Hey">PVR (Rs.200)</option>
+                <option value="Inox">Inox (Rs.150)</option>
+                <option value="City Pride">City Pride (Rs.250)</option>
+              </select>
+              <label for="number"> &nbsp; &nbsp; &nbsp; &nbsp;Number of tickets:</label>
+              <input type="number" name="number" id="number" width="">
+              <h6>Movies:</h6>
+              <ul>
+                
+
+                {%for obj in tlist %}
+                  <li>{{obj.tdate}} :: {{obj.ttheatre}} :: {{obj.tno}} :: {{obj.moviename.values}}</li>
+                {% endfor %}
+                
+
+                <!--
+                {%for obj in tlist %}
+                  <h6>{{obj.tdate}}</h6>
+                  <p>{{obj.tno}}</p>
+
+                  <ul>
+                      {% for choice in obj.tmoviename.field.choices %}
+                        <li>
+                           {{choice.1}}
+                        </li>
+                      {% endfor %}
+                      </ul>
+                {% endfor %}
+              </ul>
+               -->
+              &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+              <button type="button" class="btn btn-primary" > UPLOAD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="text-center col-md-6 col-12 col-xl-12">
+            <h3>Want to buy?</h3>
+            <p>Click below to buy tickets for this event.</p>
+            <a class="btn btn-info btn-lg" href="{% url 'buy'}" role="button">BUY</a></div>
+        </div>
+      </div>
+      <hr>
+      <hr>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="{% static 'ticket/js/jquery-3.2.1.min.js'%}"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="{% static 'ticket/js/popper.min.js'%}"></script>
+      <script src="{% static 'ticket/js/bootstrap-4.0.0.js'%}"></script>
+</div>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html>
+   <head>
+      <title> P1</title>
+      
+      {% load staticfiles %}
+      {% load widget_tweaks %}
+
+      <link href="{% static 'ticket/css/eCommerceStyle.css'%}" rel="stylesheet" type="text/css">   
+    
+	  	  </head>
+	  <body>
+<div id="mainWrapper">
+	  <div id="offer">
+	    <h2>TicketCafe</h2>
+	    <form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.tno.label_tag }}
+          {% render_field filter.form.tno class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.ttheatre.label_tag }}
+          {% render_field filter.form.ttheatre class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.moviename.label_tag }}
+          {% render_field filter.form.moviename class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.tdate.label_tag }}
+          {% render_field filter.form.tdate class="form-control" %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+		</div>
+   
+  </form>
+		   </div>
+	
+<div class="productRow">
+	
+		  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><p class="price">Number of tickets</p></th>
+        <th>Theatre</th>
+        <th>Movie</th>
+        <th>Date</th>
+        <th>BUY</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in filter.qs %}
+        <tr>
+          <td>{{ user.tno }}</td>
+          <td>{{ user.ttheatre }}</td>
+          <td>{{ user.moviename }}</td>
+          <td>{{ user.tdate }}</td>
+          <td><a href="/ticket/Search/{{user.id}}/"><input type="button" name="button" value="BUY" class="buyButton">
+          </a></td>
+		     </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+	  
+	 
+  </table>
+		
+	   </div>
+		  <p> </p>
+	    <a href="{% url 'index' %}">HOME</a>
+	</div>
+	   </body>
+	   </html>
+
+	   
+	   
+      <!--<embed type="image/svg+xml" src="/C:/Users/palas/hms/djangonautic/bar_chart.svg" />
+	  <form method="get">
+				{{ filter.form.as_p }}
+				<button type="submit">Search</button>
+		</form>
+		<ul>
+			  {% for user in filter.qs %}
+				<li>{{ user.P_Name }} - {{ user.get_full_name }}</li>
+			  {% endfor %}
+		</ul> 
+		<link rel="stylesheet" type="text/css" href="{%static 'style2.css'%}">
+P_Name = models.CharField(max_length=100)
+	Medical_history = models.CharField(max_length=100)
+	Current_Disease = models.CharField(max_length=100)
+	Doctor_Name = models.CharField(max_length=7,choices=Doctor_list)
+	Age = models.CharField(max_length=4,blank=True)
+	Year = models.CharField(max_length=10)
+	Blood_grp = models.CharField(max_length=7,choices=Blood_list)
+	timestamp = models.DateTimeField(auto_now_add = True)
+	updated = models.DateTimeField(auto_now = True)
+	slug	=models.SlugField(blank = True,null = True)-->

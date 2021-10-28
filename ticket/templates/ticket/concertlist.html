@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+   <head>
+      <title> P1</title>
+      {% load staticfiles %}
+      {% load widget_tweaks %}
+    
+      <link href="{% static 'ticket/css/eCommerceStyle.css'%}" rel="stylesheet" type="text/css">   
+    
+	  	  </head>
+	  <body>
+        <div id="mainWrapper">
+	  <div id="offer">
+	  
+	  <h2>TicketCafe</h2>
+		<form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.cno.label_tag }}
+          {% render_field filter.form.cno class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.concname.label_tag }}
+          {% render_field filter.form.concname class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.cdate.label_tag }}
+          {% render_field filter.form.cdate class="form-control" %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+      </div>
+      
+      <div class="productRow">
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Cno</th>
+        <th>Concert name</th>
+        <th>cdate</th>
+        <th>BUY</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in filter.qs %}
+        <tr>
+          <td>{{ user.cno }}</td>
+          <td>{{ user.concname }}</td>
+          <td>{{ user.cdate }}</td>
+          <td><a href="/ticket/Search3/{{user.id}}/"><input type="button" name="button" value="BUY" class="buyButton"></a></td>
+		     </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+	   </div>
+        <a href="{% url 'index' %}">HOME</a>
+        
+        </div>
+	   </body>
+	   </html>
+
+	

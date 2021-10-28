@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buy</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static 'ticket/css/bootstrap-4.0.0.css'%}" rel="stylesheet">
+    <link href="{% static 'ticket/css/jquery.ui.core.min.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'ticket/css/jquery.ui.theme.min.css'%}" rel="stylesheet" type="text/css">
+  <script src="{% static 'ticket/js/jquery-1.11.1.min.js'%}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="{% url 'index' %}">Ticket Cafe</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"> </li>
+          <li class="nav-item"> </li>
+          <li class="nav-item dropdown">
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+</form>
+      </div>
+    </nav>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron">
+            <h1 class="text-center">SELL YOUR TICKETS</h1>
+            <div class="btn-group">
+  <div class="dropdown-menu">
+            <h6 class="dropdown-header">Dropdown header 1</h6>
+                <a class="dropdown-item" href="#">First Link</a> <a class="dropdown-item disabled" href="#" >Disabled Link</a> <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Seperated Link</a> </div>
+    </div>
+<fieldset>
+</fieldset>
+
+
+  
+<div class="container"> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;          		  
+ <form action="" method="POST" class="">
+
+  {% csrf_token%}
+  
+  <h5><label for="date">Date(MM/DD/YY):</label></h5>
+  <div class="col-sm-3">{{ form.sdate }}</div>
+
+  
+  <!--<select name="select" id="select">-->
+
+      {%block content%}
+      <h5><label for="select"> &nbsp; &nbsp; SPORTS:</label></h5>
+
+      {% for ch in form.sportsname.field.choices %}
+      <div class="col-sm-3">
+        <li>
+            <input type="radio" name="sportsname" value="{{ch.0}}"
+              {% ifequal form.sportsname.data choice.0 %} 
+                checked="checked"
+              {% endifequal %}/>
+             <label for="">{{ch.1}}</label>
+          </li>
+        </div>
+          {% endfor %}
+    
+      {% endblock %}
+  
+</select>
+<label for="number"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Number of tickets:</label>
+<div class="col-sm-3">{{ form.sno }}</div>
+				   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+<input type="submit" class="btn btn-primary" value="SELL">
+</form>      
+</div>
+     
+          
+          </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+<div class="text-center col-md-6 col-12 col-xl-12">
+  <h3>Want to BUY?</h3>
+  <p>Click below to BUY your tickets for this event.</p>
+
+  <a class="btn btn-info btn-lg" href="{% url 'search1' %}" role="button">BUY</a></div>
+
+      </div>
+    </div>
+    <hr>
+<hr>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'ticket/js/jquery-3.2.1.min.js'%}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'ticket/js/popper.min.js'%}"></script>
+    <script src="{% static 'ticket/js/bootstrap-4.0.0.js'%}"></script>
+  </div>
+</body>
+</html>

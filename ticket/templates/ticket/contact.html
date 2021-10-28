@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us</title>
+    {% load staticfiles %}
+    <link href="{% static 'ticket/css/style1.css'%}" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <header>
+                <div class="row">
+                    <div class="logo">
+                    <img src="{% static 'ticket/img/logo.png' %}">
+                </div>
+        
+                <ul class="main-nav">
+                        <li class="active"><a href="{% url 'index' %}">HOME</a></li>
+                        <li><a href="{% url 'index' %}">SERVICES</a></li>
+                        <li><a href="{% url 'analysis' %}">ANALYSIS</a></li>
+                        <li><a href="">CONTACT US</a></li>
+                        <li><a href="{% url 'user-add' %}">LOGIN</a></li>         
+        
+                </ul>
+                </div>
+        
+                <div class = "hero">
+                <h1>Ticket Cafe</h1>
+                
+                
+                <p style="color:white"> Phone Number: 6450-23654 </p>
+                <p style="color:white"> E-mail: abc.ray@gmail.com</p1>
+                <p style="color:white"> Address: USA </p>
+                <p style="color:white"> toll-free: 0000-1111-2222 </p>
+                </div> 
+            </header>
+            {% block content %}
+            {% endblock %}
+    
+</body>
+</html>
